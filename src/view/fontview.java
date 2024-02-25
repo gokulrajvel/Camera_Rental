@@ -2,8 +2,6 @@ package view;
 
 import control.AdminController;
 import control.UserController;
-import control.AdminController;
-
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -17,7 +15,7 @@ public class fontview {
                 System.out.println("Enter your Password: ");
                 String password=sc.nextLine();
                 String m= UserController.sign_in(user_id,password);
-                if(m=="0"){
+                if(m.equals("0")){
                     System.out.println("\t----------------");
                     System.out.println("\tSign in Error..!");
                     System.out.println("\t----------------");
@@ -49,8 +47,8 @@ public class fontview {
                 String Adim=sc.nextLine();
                 System.out.println("Enter PassWord: ");
                 String pw=sc.nextLine();
-                String ad= AdminController.admin(Adim,pw);
-                if(ad=="0"){
+                String ad=AdminController.admin(Adim,pw);
+                if(ad.equals("0")){
                     System.out.println("\t-----------------------------------------------------------");
                     System.out.println("\tLogin Failed Please Enter Correct Admin_ID and Password..!!");
                     System.out.println("\t-----------------------------------------------------------");

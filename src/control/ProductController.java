@@ -1,6 +1,7 @@
 package control;
 
 import model.ProductModel;
+import view.Productvalue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,15 +11,26 @@ public class ProductController {
         return ProductModel.displayAllProduct();
     }
     public static ArrayList<String> searchByModel(String model) {
-            return ProductModel.searchByModel(model);
-        }
+        Productvalue productvalue=new Productvalue();
+        productvalue.setModel(model);
+        return ProductModel.searchByModel(productvalue.getModel());
+    }
     public static String changeRentAmount(int newrent,String model){
-        return ProductModel.alterRentAmount(newrent, model);
+        Productvalue productvalue=new Productvalue();
+        productvalue.setNewprice(newrent);
+        productvalue.setModel(model);
+        return ProductModel.alterRentAmount(productvalue.getNewprice(),productvalue.getModel());
     }
     public static String insertProduct(String brand,String model,int rentamount){
-        return ProductModel.insertProduct(brand,model,rentamount);
+        Productvalue productvalue=new Productvalue();
+        productvalue.setBrandname(brand);
+        productvalue.setModel(model);
+        productvalue.setPrice(rentamount);
+        return ProductModel.insertProduct(productvalue.getBrandname(),productvalue.getModel(), productvalue.getPrice());
     }
     public static String removeProduct(String model){
-        return ProductModel.removeProduct(model);
+        Productvalue productvalue=new Productvalue();
+        productvalue.setModel(model);
+        return ProductModel.removeProduct(productvalue.getModel());
     }
 }
